@@ -1,7 +1,10 @@
 import { registerService } from '../services/user.service.js';
 
-export const register = (req, res) => {
+export const register = async (req, res) => {
   const userData = req.body;
-  const result = registerService(userData);
-  res.json(result);
+  const result = await registerService(userData);
+
+  return res.status(result.status).json({
+    message: result.message
+  });
 };
