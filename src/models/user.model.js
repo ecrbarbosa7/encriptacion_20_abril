@@ -7,10 +7,12 @@ export default async function userModel() {
   const userSchema = new mongoose.Schema({
     nombre: { type: String, required: true },
     apellido: { type: String, required: true },
-    correo: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true }
   });
 
-  const model = mongoose.models.users || mongoose.model('users', userSchema, 'users');
+ 
+
+  const model = mongoose.models.user || mongoose.model('user', userSchema, 'users');
   return model;
 }
